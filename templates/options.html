@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="container-2">
+    <h5 class="header-main"> ONLINE MASSAGE RESERVATION</h5>
+        </div>
+
+
+<div id="container-3">
+    <button onclick="window.location.href = '{% url 'createaccount' %}';" class="buttonoptions">CREATE <br> ACCOUNT</button>
+    <button onclick="window.location.href = '{% url 'login' %}';" class="buttonoptions">SIGN IN</button>
+    <button onclick="window.location.href = '{% url 'main' %}';" class="buttonoptions">HOME</button>
+        </div>
+
+{% endblock %}
+

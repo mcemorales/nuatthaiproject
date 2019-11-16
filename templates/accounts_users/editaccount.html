@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div id="container-2">
+    <h5 class="header-main"> ONLINE MASSAGE RESERVATION </h5>
+        </div>
+
+<div id="container-3">
+
+<!--Alerts-->
+
+
+<form action ="{% url 'editaccount' %}" method="POST" enctype="multipart/form-data">
+        
+        {% csrf_token %}
+
+
+        <div id="columnpersonalinfo1">
+        {% include 'partials/_alerts.html'%}
+            <p class="formpersonalinfotitle">Edit Information</p>
+<div class="loggedin">
+{% if user.is_authenticated %}
+ LOGGED IN AS: {{user.username}}
+
+
+{% endif %}
+   </div>
+       
+            <div class="formpersonalinfo">
+                <label for="FirstName">First Name: </label><br>
+                <input type="text" name="first_name" class="form-control" placeholder="First Name" required> {{ form.u_form }}
+                    </div>
+
+                <div class="formpersonalinfo">
+                    <label for="LastName">Last Name: </label><br>
+                    <input type="text" name="last_name" class="form-control" placeholder="Last Name" required> {{ form.u_form }}
+                        </div>
+
+
+    
+
+
+
+                                                <div class="formpersonalinfo">
+                                                    <div><button  class="generalbutton " type="submit">SAVE</button>
+                                                        </div>
+                                                            </div>
+
+    
+
+
+</form>
+</div>
+                <div id="column2">
+                    <button onclick="window.location.href = '{% url 'reservation' %}';" class="generalbutton" >BACK</button><br>
+                <button href onclick= "javascript:{document.getElementById('logout').submit()}" class="generalbutton" >LOG OUT</button><br>
+           
+            <form action="{% url 'login' %}" method="POST" id="logout">
+            {% csrf_token %}
+            <input type="hidden">
+            </form>
+
+                        </div>
+
+
+</div>
+
+{% endblock %}

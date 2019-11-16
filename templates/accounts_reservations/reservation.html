@@ -1,0 +1,120 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div id="container-2">
+  <h5 class="header-main">ONLINE MASSAGE RESERVATION</h5>
+</div>
+
+<div id="container-3">
+  <form action="{% url 'reservation' %}" method="POST">
+    {% csrf_token %}
+
+    <div id="columnpersonalinfo1">
+      {% include 'partials/_alerts.html'%}
+      <p class="formpersonalinfotitle">NEW RESERVATION FORM</p>
+      <div class="formpersonalinfo">
+        <label for="Massage Type">Massage Type: </label><br />
+        <select class="form-control" name="message_type">
+          <option value="O" selected>Select...</option>
+          <option value="N" selected
+            >NUAT THAI FOOT MASSAGE (1 HOUR) P350.00</option
+          >
+          <option value="T" selected>THAI BODY MASSAGE (1 HOUR) P350.00</option>
+          <option value="S">SWEDISH MASSAGE (1 HOUR) P400.00</option>
+          <option value="A">AROMATHERAPY MASSAGE (1 HOUR) P400.00</option>
+          <option value="E" selected
+            >EXPRESS - BACK AND HEAD (30 MINS) P250.00</option
+          >
+          <option value="F" selected>FOOT MASSAGE (30 HOUR) P250.00</option>
+          <option value="B">BACK MASSAGE (30 HOUR) P250.00</option>
+          <option value="H">DHEAD MASSAGE (30 HOUR) P250.00</option>
+        </select>
+      </div>
+
+      <div class="formpersonalinfo">
+        <label for="Therapist">Therapist: </label><br />
+        <select class="form-control" name="therapist_type">
+          <option value="P" selected>Select...</option>
+          <option value="F" selected>FEMALE</option>
+          <option value="M" selected>MALE</option>
+        </select>
+      </div>
+
+      <div class="formpersonalinfo">
+        <label for="dateandtimepicker">Select Date and Time: </label><br />
+        <input
+          class="form-control"
+          id="datetimepicker"
+          type="text"
+          name="reservation_date_time"
+        />
+        {{ form.date }}
+        <script>
+          $(function() {
+            $("#datetimepicker").datetimepicker({
+              allowTimes: [
+                "12:00",
+                "13:00",
+                "14:00",
+                "15:00",
+                "16:00",
+                "17:00",
+                "18:00",
+                "19:00",
+                "20:00",
+                "21:00",
+                "22:00",
+                "23:00",
+                "00:00",
+                "01:00",
+                "02:00"
+              ]
+            });
+          });
+        </script>
+      </div>
+
+      <div class="formpersonalinfo">
+        <label for="Mobilenumber">Mobile Number: </label><br />
+        <input
+          type="text"
+          name="mobile_number"
+          class="form-control"
+          placeholder="Enter Mobile Number"
+          required
+        />
+      </div>
+
+      <div class="formpersonalinfo">
+        <label for="SpecialInstruction">Special Instruction: </label><br />
+        <input
+          type="text"
+          name="special_instruction"
+          class="form-control"
+          placeholder="Text Area..."
+        />
+      </div>
+
+      <div class="formpersonalinfo">
+        <div><button class="generalbutton " type="submit">SUBMIT</button></div>
+      </div>
+    </div>
+  </form>
+
+ <div id="column2">
+
+    <button
+      onclick="window.location.href = '{% url 'editaccount' %}';"
+      class="generalbutton"
+    >
+      EDIT ACCOUNT</button
+    ><br />
+    <button
+      onclick="window.location.href = '{% url 'main' %}';"
+      class="generalbutton"
+    >
+      LOG OUT</button
+    ><br />
+  </div>
+</div>
+
+{% endblock %}

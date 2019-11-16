@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div id="container-2">
+    <h5 class="header-main"> ONLINE MASSAGE RESERVATION </h5>
+        </div>
+
+<div id="container-3">
+
+<!--Alerts-->
+
+
+<form action ="{% url 'createaccount' %}" method="POST">
+        
+        {% csrf_token %}
+
+
+        <div id="columnpersonalinfo1">
+        {% include 'partials/_alerts.html'%}
+            <p class="formpersonalinfotitle">Personal Information</p>
+
+       
+            <div class="formpersonalinfo">
+                <label for="FirstName">First Name: </label><br>
+                <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
+                    </div>
+
+                <div class="formpersonalinfo">
+                    <label for="LastName">Last Name: </label><br>
+                    <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+                        </div>
+
+                    <div class="formpersonalinfo">
+                        <label for="username">Username: </label><br>
+                        <input type="text" name="username" class="form-control" placeholder="username"required>
+                            </div>
+
+                            <div class="formpersonalinfo">
+                                    <label for="Email">Email Address: </label><br>
+                                    <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                                        </div>
+
+                        
+                                <div class="formpassword">
+                                    <label for="password2">Password:</label>
+                                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                        </div>
+
+                                    <div class="formpassword">
+                                        <label for="password">Retype Password:</label>
+                                        <input type="password" name="password2" class="form-control" placeholder="Password" required>
+                                            </div>
+
+                                                <div class="formpersonalinfo">
+                                                    <div><button  class="generalbutton " type="submit">SUBMIT</button>
+                                                        </div>
+                                                            </div>
+
+    
+
+
+</form>
+</div>
+                <div id="column2">
+                    <button onclick="window.location.href = '{% url 'main' %}';" class="generalbutton" >BACK TO HOME</button><br>
+                    <button onclick="window.location.href = '{% url 'login' %}';" class="generalbutton" >SIGN IN</button><br>
+                        </div>
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+
+        <div id="container-2"><h5 class="header-main"> ONLINE MASSAGE RESERVATION</h5></div>
+        <div id="container-3">
+            <div id="column1">
+
+                    <div>
+                      <h1> Unable to proceed at this time.</h1>
+  <p>Kindly select another date or time. Thank you.</p>
+                    </div>
+
+			
+
+
+
+
+            </div>
+</form>
+
+            <div id="column2">
+           <button
+      onclick="window.location.href = '{% url 'reservation' %}';"
+      class="generalbutton"
+    >
+      NEW RESERVATION</button
+    ><br />
+    <button
+      onclick="window.location.href = '{% url 'main' %}';"
+      class="generalbutton"
+    >
+      LOG OUT</button
+    ><br />
+  
+            </div>
+
+
+
+        </div>
+
+
+
+{% endblock %}
