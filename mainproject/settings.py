@@ -155,3 +155,8 @@ EMAIL_USE_TLS = True
 
 LOGIN_REDIRECT_URL = 'reservation'
 LOGOUT_REDIRECT_URL = '/'
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
