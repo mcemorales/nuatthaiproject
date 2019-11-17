@@ -21,13 +21,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'vu7(f_qx_g5)yqn+f)#f)uv85=pti#bb#l45m&nekhsf8dti^!'
-
-SECRET_KEY = os.environ.get('BLOG_KEY')
+SECRET_KEY = 'vu7(f_qx_g5)yqn+f)#f)uv85=pti#bb#l45m&nekhsf8dti^!'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
@@ -79,15 +77,15 @@ WSGI_APPLICATION = 'mainproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'nuatthaidb',
-#         'USER': 'postgres',
-#         'PASSWORD':'12345',
-#         'HOST':'localhost'
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'nuatthaidb',
+        'USER': 'postgres',
+        'PASSWORD':'1234',
+        'HOST':'localhost'
+    }
+}
 
 # DATABASES = {
 #     'default': {
@@ -146,16 +144,14 @@ MESSAGE_TAGS = {
 }
 
 
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mcemorales21@gmail.com'
+EMAIL_HOST_PASSWORD = 'euptqczwurpfuwqf'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 # EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 # DEFAULT_FROM_EMAIL = 'nuatthai-2 <mcemorales21@gmail.com>'
 
 LOGIN_REDIRECT_URL = 'reservation'
 LOGOUT_REDIRECT_URL = '/'
-
-# try:
-#     from .local_settings import *
-# except ImportError:
-#     pass
-
-# django_heroku.settings(locals())
