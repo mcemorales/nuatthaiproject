@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
+import django_heroku
 from django.contrib.messages import constants as messages
 import os
 
@@ -149,3 +149,5 @@ EMAIL_USE_TLS = True
 
 LOGIN_REDIRECT_URL = 'reservation'
 LOGOUT_REDIRECT_URL = '/'
+
+django_heroku.settings(locals())
