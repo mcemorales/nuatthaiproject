@@ -26,7 +26,7 @@ class account_reservation(models.Model):
     date = models.DateField()
     time = models.TimeField()
     specialinstruction = models.TextField(blank=True)
-
+    # created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.reference_id
