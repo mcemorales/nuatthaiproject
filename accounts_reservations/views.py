@@ -52,8 +52,8 @@ def reservation(request):
             message = 'Username:' + request.user.username + '\n' + 'Phone Number' + \
                 mobile_number + '\n' + 'Date and Time:' + str(date) + str(time)
             email_from = settings.EMAIL_HOST_USER
+            email_from = settings.EMAIL_HOST_USER
             recipient_list = [reference_id.email, settings.EMAIL_HOST_USER]
-            send_mail(subject, message, email_from, recipient_list)
             return render(request, 'accounts_reservations/reservationsuccess.html')
             # return HttpResponse("Email has just sent successfully")
         else:
@@ -62,9 +62,3 @@ def reservation(request):
 
     else:
         return render(request, 'accounts_reservations/reservation.html')
-
-
-
-
-
-
