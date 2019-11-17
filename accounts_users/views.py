@@ -48,6 +48,7 @@ def login(request):
 			messages.error(request, 'Invalid credentials')
 			return redirect ('login')
 
+
 def editaccount(request):
 	if request.method == 'POST':
 		u_form = UserUpdateForm(request.POST, instance=request.user)
